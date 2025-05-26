@@ -45,10 +45,27 @@ function createEmployee(salary: number | string): Director | Teacher {
         return new Director();
     }
 }
+// Tests to check the salary and employee type
+console.log(createEmployee(200)); // Teacher
+console.log(createEmployee(1000)); // Director
+console.log(createEmployee('$500')); // Director
 
-console.log(createEmployee(200));
-Teacher
-console.log(createEmployee(1000));
-Director
-console.log(createEmployee('$500'));
-Director
+
+
+function isDirector(employee: Director | Teacher): employee is Director {
+    return employee instanceof Director;
+}
+
+function executeWork(employee: Director | Teacher): string {
+    if (isDirector(employee)) {
+        return employee.workDirectorTasks();
+    } else {
+        return employee.workTeacherTasks();
+    }
+}
+// Tests to check the works tasks
+const test1 = createEmployee(200); // Teacher
+const test2 = createEmployee(1000); // Director
+
+console.log(executeWork(test1)); // Getting to work
+console.log(executeWork(test2)); // Getting to director tasks
