@@ -69,3 +69,16 @@ const test2 = createEmployee(1000); // Director
 
 console.log(executeWork(test1)); // Getting to work
 console.log(executeWork(test2)); // Getting to director tasks
+
+
+type Subjects = 'Math' | 'History'; // String literal type for subjects
+function teachClass(todayClass: Subjects): string {
+    if (todayClass === 'Math') {
+        return 'Teaching Math';
+    } else {
+        return 'Teaching History';
+    }
+}
+// Tests to check the TeachClass
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
