@@ -17,6 +17,19 @@ const teacher3: Teacher = {
 
 console.log(teacher3);
 
+interface printTeacherFunction {
+    (Teacher: Teacher): string;
+}
+
+// function to print the first initial and last name of a teacher
+function printTeacher(Teacher : Teacher): string {
+    return `${Teacher.firstName[0]}. ${Teacher.lastName}`;
+}
+
+console.log(printTeacher(teacher3));
+
+
+// Extending the Teacher interface to create Directors interface
 interface Directors extends Teacher {
     numberOfReports: number; 
 }
