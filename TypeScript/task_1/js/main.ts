@@ -17,6 +17,8 @@ const teacher3: Teacher = {
 
 console.log(teacher3);
 
+
+// New interface to defin a function that takes a Teacher
 interface printTeacherFunction {
     (Teacher: Teacher): string;
 }
@@ -43,3 +45,34 @@ const director1: Directors = {
 };
 
 console.log(director1);
+
+
+// Interface for the constructor
+interface StudentConstructor {
+    new(firstName: string, lastName: string) : StudentClass;
+}
+
+// Interface for the Class Structure
+interface StudentClassInterface {
+    workOnHomework(): string;
+    displayName(): string;
+}
+
+// Function for Student Class
+class StudentClass implements StudentClassInterface{
+    firstName: string;
+    lastName: string;
+
+    constructor(firstName: string, lastName: string) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    workOnHomework(): string {
+        return 'Currently working';
+    }
+    displayName(): string {
+        return this.firstName;
+    }
+}
+
+console.log(new StudentClass('John', 'Doe').workOnHomework());
